@@ -1,6 +1,7 @@
 import 'react-hyperscript-helpers': { div, h }
 import 'ramda': { map, range, append }
 import './Landscape.sass': style
+import './Edgar': { Edgar }
 import './Spotlight': { Spotlight }
 
 export Landscape = (props) ->
@@ -74,6 +75,7 @@ City = ->
       ]
       h TowerBody, { numberOfFloor: 7, numberOfWindow: 4 }
     ]
+    h Edgar
   ]
 
 TowerBody = ({

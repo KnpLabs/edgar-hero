@@ -1,0 +1,335 @@
+$eyes-top: 50%
+$eyes-left: 20%
+$eyes-width : 25%
+$eyes-height : 100%
+
+.edgar
+  position: absolute
+  left: 500px
+  bottom: 471px
+  width: 300px
+  height: 300px
+  align-content: center
+  text-align: center
+  animation-duration: 3s
+  animation-name: edgar-levitate
+  animation-iteration-count: infinite
+  animation-timing-function: ease-in-out
+
+@keyframes edgar-levitate
+  0%
+    bottom: 480px
+  50%
+    bottom: 495px
+  100%
+    bottom: 480px
+
+.edbody
+  top: -130px
+  width: 60%
+  height: 90%
+  background-color: rgb(9,9,9)
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%
+  position: relative
+  overflow: hidden
+  display: inline-block
+  box-shadow: 4px 4px #0005, inset 20px 20px 25px rgba(255, 255, 255, 0.1)
+
+.mask
+  width: 100%
+  height: 13%
+  top: 15%
+  text-align: center
+  position: relative
+
+  &:before
+    box-shadow: inset 0px -10px 34px #000c
+    content: ''
+    position: absolute
+    top: 0
+    left: 0
+    height: 100%
+    width: 51%
+    background: red
+    transform: skew(0deg, 6deg)
+
+  &:after
+    box-shadow: inset 0px -10px 34px #000c
+    content: ''
+    position: absolute
+    top: 0
+    right: 0
+    height: 100%
+    width: 50%
+    background: red
+    transform: skew(0deg, -6deg)
+
+.eyes
+  top: 3%
+  background-color: rgba(0,0,0,0)
+  width: 100%
+  height: 13%
+  position: inherit
+  text-align: center
+
+$eyesize: 27px
+$eyesposition: -70%
+  
+.lefteye
+  display: inline-block
+  position: relative
+  width: 0px
+  height: 0px
+  border: $eyesize solid transparent
+  border-left: $eyesize solid white
+  border-bottom: $eyesize solid white
+  border-radius: $eyesize  
+  transform: rotate(-40deg)
+  top: $eyesposition
+  animation-iteration-count: infinite
+  animation-duration: 10s
+  animation-name: wink-anim
+
+  &:before
+    position: absolute
+    top: 0px
+    left: -13px
+    content: ""
+    width: 15px
+    height: 15px
+    border-radius: 50%
+    background-color: black
+
+@keyframes wink-anim
+  0%
+    transform: scaleY(1) rotate(-40deg)
+  98%
+    transform: scaleY(1) rotate(-40deg)
+  99%
+    transform: scaleY(0) rotate(-40deg)
+  100%
+    transform: scaleY(1) rotate(-40deg)
+
+.righteye
+  display: inline-block
+  position: relative
+  width: 0px
+  height: 0px
+  border: $eyesize solid transparent
+  border-right: $eyesize solid white
+  border-bottom: $eyesize solid white
+  border-radius: $eyesize
+  transform: rotate(40deg)
+  top: $eyesposition
+
+  &:before
+    position: absolute
+    border-radius: 50%
+    content: ""
+    width: 15px
+    height: 15px
+    background-color: black
+    top: 0px
+    left: -2px
+
+.nose
+  position: relative
+  top: 10%
+  left: 45%
+  width: 10%
+  height: 10%
+  border-left: solid transparent
+  border-right: solid transparent
+  border-top: 4px solid #a80000
+  border-radius: 50%
+
+  &:before
+    box-shadow: inset 0px -1px 10px #0004
+    position: relative
+    width: 20%
+    height: 20%
+    content: ''
+    display: block
+    background-color: red
+    left: 40%
+
+.mouth
+  position: relative
+  width: 20%
+  height: 5%
+  top: 3%
+  left: 41%
+  border-radius: 60%
+  border-bottom-left-radius: 0
+  border-bottom-right-radius: 0
+  background-color: white
+  transform: rotate(180deg)
+
+  &:before
+    content: ''
+    position: relative
+    display: block
+    background-color: black
+    width: 100%
+    height: 50%
+    border-radius: 60%
+    border-bottom-left-radius: 0
+    border-bottom-right-radius: 0
+    top: 50%
+
+.ears
+  position: relative
+  width: 100%
+  height: 20%
+  text-align: center
+  top: 0
+.leftear
+  margin-right: 10%
+  background-color: black
+  position: relative
+  height: 100%
+  width: 15%
+  display: inline-block
+  border-radius: 50%
+  border-top-left-radius: 1%
+.rightear
+  margin-left: 10%
+  background-color: black
+  position: relative
+  height: 100%
+  width: 15%
+  display: inline-block
+  border-radius: 50%
+  border-top-right-radius: 1%
+.feet
+  position: relative
+  width: 100%
+  height: 30%
+  text-align: center
+  top: 60%
+
+.leftfoot
+  position: relative
+  height: 100%
+  width: 15%
+  display: inline-block
+  background-color: black
+  border-radius: 50%
+  margin-right: 5%
+  border-top-left-radius: 0
+  box-shadow: 4px 0px #0005
+.rightfoot
+  position: relative
+  height: 100%
+  width: 15%
+  display: inline-block
+  background-color: black
+  border-radius: 50%
+  margin-left: 5%
+  border-top-right-radius: 0
+  box-shadow: 4px 0px #0005
+.whiskers
+  width: 100%
+  height: 8px
+  position: absolute
+  left: 25%
+  transform-style: preserve-3d
+  perspective: 100px
+
+  $whiskerswidth: 100%
+  &:after
+    content: ''
+    display: inline-block
+    position: absolute
+    height: 100%
+    width: $whiskerswidth
+    border: 2px solid red
+    border-left: none
+    border-right: none
+    transform-origin: right center
+    top: 0
+    left: -42px
+    transform: rotateY(44deg) rotateZ(14deg) rotateX(30deg)
+
+  &:before
+    content: ''
+    display: inline-block
+    position: absolute
+    height: 100%
+    width: $whiskerswidth
+    border: 2px solid red
+    border-left: none
+    border-right: none
+    top: 1px
+    left: 29px
+    transform-origin: left center
+    transform: rotateY(-44deg) rotateZ(-14deg) rotateX(-30deg)
+
+.arms
+  $arm-width: 20px
+
+  position: relative
+  top: 41px
+  box-shadow: 4px 4px #0005
+
+  .arm
+    position: absolute
+    width: $arm-width
+    height: $arm-width
+    background-color: black
+    border-radius: 50%
+    left: 10px
+
+    &:before,
+    &:after
+      content: ''
+      position: absolute
+      display: block
+      background-color: black
+      height: 100%
+      width: 80px
+      left: -5px
+      border-radius: 40%
+
+    &:before
+      top: 18px
+      transform: rotate(30deg)
+
+    &:after
+      top: -18px
+      transform: rotate(-30deg)
+
+    &.right
+      transform: scaleX(-1)
+      right: 10px
+      left: auto
+
+.edcape
+  position: absolute
+  top: 30%
+  left: 35%
+  background: linear-gradient(135deg, #330505 0%,#700b0b 50%,#f40404 100%) 
+  box-shadow: inset 0px -10px 34px #000c
+  width: 50%
+  height: 75%
+  transform: skew(15deg,0deg)
+  border-radius: 40%
+  border-bottom-left-radius: 5%
+  border-bottom-right-radius: 5%
+  animation-name: floating-cape
+  animation-duration: 4s
+  animation-iteration-count: infinite
+  animation-timing-function: ease-in-out
+
+@keyframes floating-cape
+  0%
+    transform: skew(12deg, 0deg) scale(1, 1) rotate(0deg)
+  25%
+    transform: skew(15deg, 0deg) scale(1.0, 0.9) rotate(5deg)
+  45%
+    transform: skew(18deg, -4deg) scale(1, 1) rotate(0deg)
+  60%
+    transform: skew(15deg, 4deg) scale(1.0, 1.1) rotate(-5deg)
+  100%
+    transform: skew(12deg, 0deg) scale(1, 1) rotate(0deg)
+
