@@ -1,0 +1,17 @@
+$color-night: #2C2B48
+$color-night-with-light: #928E47
+
+body
+  font-family: Arial
+  margin: 0
+  padding: 0
+  background-image: linear-gradient(to bottom, $color-night 40%, $color-night-with-light 90%)
+  animation-name: background-anim
+  animation-duration: 4s
+  animation-iteration-count: infinite
+  animation-direction: alternate
+
+@keyframes background-anim
+  @for $i from 0 to 101
+    #{$i}%
+      background-image: linear-gradient(to bottom, $color-night 80% - ($i / 4), $color-night-with-light 100%)
