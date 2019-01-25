@@ -1,0 +1,128 @@
+$bg-color: #faffa6
+$fg-color: #2C2B48
+
+#spotlight
+  $spot-radius: 300px
+  position: absolute
+  left: 30%
+  width: 800px
+  height: 1000px
+  overflow: hidden
+  transform: scaleY(0.9)
+
+  animation-name: search-anim
+  animation-duration: 10s
+  animation-iteration-count: infinite
+
+  @keyframes search-anim
+    0%
+      opacity: 0.5
+      transform: translate(0%, -5%) rotate(-10deg) scale(0.75)
+    50%
+      opacity: 1
+      transform: translate(30%, 5%) rotate(15deg) scale(1)
+    100%
+      opacity: 0.5
+      transform: translate(0%, -5%) rotate(-10deg) scale(0.75)
+
+  .ray
+    position: absolute
+    top: -850px
+    right: -1876px
+    border-top: ($spot-radius / 2) - 2 solid transparent
+    border-bottom: ($spot-radius / 2) - 2 solid transparent
+    border-left: 1200px solid transparent
+    border-right: 1200px solid $bg-color
+    transform: rotate(-60deg) translate(-100%, -100%)
+    opacity: 0.3
+
+  .paw
+    $base-left: 20.5%
+    $base-rotate: 13deg
+
+    position: absolute
+    top: $spot-radius / 2 + 20px
+    right: -$spot-radius / 2 + 20px
+    background-color: $bg-color
+    width: $spot-radius
+    height: $spot-radius
+    border-radius: 50%
+    transform: translate(-50%, -50%)
+    box-shadow: 0 0 20px $bg-color
+
+    animation-name: blur-anim
+    animation-duration: 10s
+    animation-iteration-count: infinite
+
+    @keyframes blur-anim
+      0%
+        box-shadow: 0 0 5px white
+      50%
+        box-shadow: 0 0 20px white
+      100%
+        box-shadow: 0 0 5px white
+
+    .digit
+      position: absolute
+      background-color: $fg-color
+      width: 14%
+      height: 20%
+      border-radius: 50% 50% 50% 50% / 55% 55% 45% 45%
+
+      &.digit-1
+        left: $base-left
+        top: 23%
+        transform: rotate($base-rotate)
+
+      &.digit-2
+        left: $base-left + 17%
+        top: 12%
+        width: 23%
+        height: 34%
+        transform: rotate($base-rotate + 12deg)
+
+      &.digit-3
+        left: $base-left + 37%
+        top: 27%
+        width: 23%
+        height: 34%
+        transform: rotate($base-rotate + 29deg)
+
+      &.digit-4
+        left: $base-left + 49%
+        top: 54%
+        transform: rotate($base-rotate + 40deg)
+
+    .palm
+      $size: 20%
+      position: absolute
+      background-color: $fg-color
+      width: $size * 1.4
+      height: $size
+      left: $base-left + 2%
+      top: 62%
+      border-radius: 50%
+      transform: scaleX(1.1) rotate($base-rotate + 20deg)
+
+      &:before,
+      &:after
+        $size: 64%
+        content: ''
+        display: block
+        position: relative
+        background: linear-gradient($fg-color 0%, $fg-color 84%, rgba(0, 0, 0, 0) 85%, rgba(0, 0, 0, 0) 100%)
+        width: $size
+        height: $size * 1.8
+        border-radius: 50% / 100%
+        border-bottom-left-radius: 0
+        border-bottom-right-radius: 0
+
+      &:before
+        left: -22%
+        top: -34%
+        transform: skew(-10deg) rotate(-60deg)
+
+      &:after
+        transform: skew(10deg) rotate(60deg)
+        left: 54%
+        top: -145%
