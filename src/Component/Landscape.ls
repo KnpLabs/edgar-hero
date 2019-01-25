@@ -13,18 +13,18 @@ export Landscape = (props) ->
       -> div '.star'
       range 0 8
     div '.clouds' [
-      cloud 3
-      cloud 2
-      cloud 3
-      cloud 2
+      h Cloud, { mist: 3 }
+      h Cloud, { mist: 2 }
+      h Cloud, { mist: 3 }
+      h Cloud, { mist: 2 }
     ]
     h City
   ]
 
-cloud = (amountOfMist = 3) ->
-  div ".cloud.of#{amountOfMist}" map do
+Cloud = ({ mist = 3 }) ->
+  div ".cloud.of#{mist}" map do
     -> div '.mist'
-    range 0 amountOfMist
+    range 0 mist
 
 City = ->
   div '.city' [
@@ -43,14 +43,12 @@ City = ->
       ]
       h TowerBody, { numberOfWindow: 3, numberOfFloor: 3 }
     ]
-
     div '.tower.three' [
       div '.head' [
         div '.block.full-size'
       ]
       h TowerBody, { numberOfFloor: 8, numberOfWindow: 6 }
     ]
-
     div '.tower.four' [
       div '.head' [
         div '.dome'
@@ -59,7 +57,6 @@ City = ->
       ]
       h TowerBody, { numberOfFloor: 5, numberOfWindow: 3, separator: 1 }
     ]
-
     div '.tower.five' [
       div '.head' [
         div '.block'
@@ -68,7 +65,6 @@ City = ->
       ]
       h TowerBody, { numberOfFloor: 4, numberOfWindow: 2 }
     ]
-
     div '.tower.six' [
       div '.head' [
         div '.pic'
