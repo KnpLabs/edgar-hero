@@ -9,4 +9,7 @@ export Landscape = (props) ->
       -> div '.crater'
       range 1 8
     h Spotlight
+    div '.stars' map do
+      -> div '.star'
+      range 1 9
   ]
