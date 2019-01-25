@@ -62,12 +62,11 @@
     "workbox-webpack-plugin": "3.6.3"
   },
   "scripts": {
-    "start": "npm-run-all -p compiler react:start",
-    "react:start": "node scripts/start.js",
+    "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "lsc": "lsc -r livescript-transform-esm/register/cjs --no-header --bare -k -c",
-    "compiler": "chokidar src/**/*.ls -c 'yarn lsc {path}'"
+    "lsc": "lsc -r livescript-transform-esm/register/cjs --no-header --bare -c",
+    "compiler": "chokidar 'src/**/*.ls' --initial -c 'clear && yarn lsc {path}'"
   },
   "eslintConfig": {
     "extends": "react-app"
